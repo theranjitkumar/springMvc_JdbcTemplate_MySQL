@@ -31,12 +31,16 @@ public class StudentController {
 	}
 	@RequestMapping("/addNewStudent")
 	public ModelAndView add(ModelAndView mv){
-		mv.setViewName("addStudent");
-		return mv;
+		return new ModelAndView("addStudent", "command", new Student());
 	}
 	
+//	   @RequestMapping(value = "/addNewStudent", method = RequestMethod.GET)
+//	   public ModelAndView student() {
+//	      return new ModelAndView("addStudent", "command", new Student());
+//	   }	
+	
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-	public ModelAndView addStudent(@ModelAttribute Student student) {
+	public ModelAndView addStudent(@ModelAttribute("student") Student student) {
 	    studentImpl.addStudent(student);
 	    return new ModelAndView("redirect:/studentList");
 	}

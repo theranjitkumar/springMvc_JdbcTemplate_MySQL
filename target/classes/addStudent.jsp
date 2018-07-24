@@ -14,9 +14,12 @@
 
      <div align="center">
         <h1>Add student form</h1>
-         <form:form action="addStudent"  method="post" modelAttribute="student">
+         <form:form action="./addStudent"  method="post">
         <table>
-            <form:hidden path="id"/>
+            <tr>
+                <td>id:</td>
+                <td><form:input path="id" /></td>
+            </tr>
             <tr>
                 <td>Name:</td>
                 <td><form:input path="name" /></td>
